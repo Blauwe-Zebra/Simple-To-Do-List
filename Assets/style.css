@@ -24,6 +24,7 @@ body {
 }
 
 .container h1 {
+  font-size: 2em;
   text-align: left;
 }
 
@@ -31,6 +32,7 @@ body {
   margin: 30px auto;
   display: flex;
   justify-content: center;
+  font-size: 1em;
 }
 
 .Input input {
@@ -56,13 +58,11 @@ body {
   border: 0;
   background-color: rgb(198, 85, 85);
   color: white;
-  font-size: 1rem;
 }
 
 ul {
   text-align: left;
   position: relative;
-  display: block;
 }
 
 ul li {
@@ -93,4 +93,17 @@ ul li:hover {
 
 .Cheked::before {
   background-image: url(/Assets/checked.png);
+}
+
+span {
+  position: absolute;
+  right: 5%;
+  padding: 4px 6px;
+  border-radius: 5px;
+}
+
+span:hover {
+  cursor: pointer;
+  transition: all 0.3s;
+  background-color: rgb(189, 189, 189);
 }
