@@ -58,3 +58,22 @@ body {
   color: white;
   font-size: 1rem;
 }
+
+ul {
+  text-align: left;
+}
+
+li {
+  list-style-type: square;
+  padding-left: 12px;
+}
+
+li:hover {
+  text-decoration: line-through;
+  cursor: pointer;
+}
+
+.Cheked {
+  text-decoration: line-through;
+  color: rgb(161, 0, 0);
+}
