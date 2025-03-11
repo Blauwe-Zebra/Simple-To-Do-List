@@ -61,19 +61,36 @@ body {
 
 ul {
   text-align: left;
+  position: relative;
+  display: block;
 }
 
-li {
-  list-style-type: square;
+ul li {
+  margin: 10px 0 0 25px;
+  list-style-type: none;
   padding-left: 12px;
+  user-select: none;
 }
 
-li:hover {
-  text-decoration: line-through;
+ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  background-image: url(/Assets/unchecked.png);
+}
+
+ul li:hover {
   cursor: pointer;
 }
 
 .Cheked {
   text-decoration: line-through;
-  color: rgb(161, 0, 0);
+  color: rgb(99, 99, 99);
+}
+
+.Cheked::before {
+  background-image: url(/Assets/checked.png);
 }
