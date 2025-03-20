@@ -27,11 +27,31 @@ tasks.addEventListener("click", function (click) {
   }
 });
 
+const encryptionKey = "my_secret_key"; // Change this to a secure key
+
 function Save() {
-  localStorage.setItem("Data", tasks.innerHTML);
+  const encrypted_text = CryptoJS.AES.encrypt(
+    tasks.innerHTML,
+    encryptionKey
+  ).toString();
+  localStorage.setItem("Data", encrypted_text);
+  console.log("Encrypted:", encrypted_text);
 }
 
 LoadSave();
 function LoadSave() {
-  tasks.innerHTML = localStorage.getItem("Data");
+  const encrypted_text = localStorage.getItem("Data");
+  if (encrypted_text) {
+    const decrypted_bytes = CryptoJS.AES.decrypt(encrypted_text, encryptionKey);
+    const decrypted_string = decrypted_bytes.toString(CryptoJS.enc.Utf8);
+
+    if (decrypted_string) {
+      tasks.innerHTML = decrypted_string;
+      console.log("Decrypted:", decrypted_string);
+    } else {
+      console.error("Decryption failed!");
+    }
+  } else {
+    console.warn("No saved data found!");
+  }
 }
