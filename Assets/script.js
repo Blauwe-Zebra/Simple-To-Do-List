@@ -1,6 +1,14 @@
 const input = document.getElementById("Input");
 const tasks = document.getElementById("Tasks");
 
+// Create item if enter is pressed on input
+input.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    AddItem();
+  }
+});
+
+// Create item
 function AddItem() {
   if (input.value === "") {
     console.log("No content in input");
@@ -17,6 +25,7 @@ function AddItem() {
   input.value = "";
 }
 
+// if item is clicked check item or remove it
 tasks.addEventListener("click", function (click) {
   if (click.target.tagName == "LI") {
     click.target.classList.toggle("Cheked");
@@ -27,6 +36,7 @@ tasks.addEventListener("click", function (click) {
   }
 });
 
+// encrypt and saves the data in the to-do list to localstorage
 const encryptionKey = "my_secret_key"; // Change this to a secure key
 
 function Save() {
@@ -35,7 +45,6 @@ function Save() {
     encryptionKey
   ).toString();
   localStorage.setItem("Data", encrypted_text);
-  console.log("Encrypted:", encrypted_text);
 }
 
 LoadSave();
@@ -47,7 +56,6 @@ function LoadSave() {
 
     if (decrypted_string) {
       tasks.innerHTML = decrypted_string;
-      console.log("Decrypted:", decrypted_string);
     } else {
       console.error("Decryption failed!");
     }
@@ -55,3 +63,12 @@ function LoadSave() {
     console.warn("No saved data found!");
   }
 }
+
+// saves the data in the to-do list to localstorage
+// function Save() {
+//   localStorage.setItem("Data", tasks.innerHTML);
+// }
+
+// function LoadSave() {
+//   tasks.innerHTML = localStorage.getItem("Data");
+// }
