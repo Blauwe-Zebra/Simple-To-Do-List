@@ -11,6 +11,7 @@ body {
   width: 100vw;
   background: linear-gradient(110deg, rgb(72, 72, 255), rgb(255, 72, 252));
   padding: 20px;
+  transition: 0.5s all;
 }
 
 .container {
@@ -18,22 +19,33 @@ body {
   width: 100%;
   max-width: 500px;
   background-color: white;
+  color: black;
   margin: 3% auto;
   border-radius: 15px;
   text-align: center;
   padding: 40px 30px 80px;
+  transition: 0.5s all;
 }
 
 .container .print {
   position: absolute;
-  top: 5%;
-  right: 5%;
+  top: 15px;
+  right: 20px;
   padding: 10px;
   border-radius: 50%;
   transition: 0.5s all;
 }
 
-.container .print:hover {
+.container .DarkMode {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 10px;
+  border-radius: 50%;
+  transition: 0.5s all;
+}
+
+.container .fa:hover {
   background-color: lightgrey;
   transition: 0.5s all;
   cursor: pointer;
@@ -122,4 +134,30 @@ span:hover {
   cursor: pointer;
   transition: all 0.3s;
   background-color: rgb(189, 189, 189);
+}
+
+/* Darkmode */
+.Darkcontainer {
+  background-color: rgb(40, 40, 40);
+  color: white;
+  transition: 0.5s all;
+}
+
+.Darkcontainer .Input input {
+  background-color: grey;
+  color: white;
+}
+
+.Darkcontainer .Input input::placeholder {
+  color: rgb(175, 175, 175);
+}
+
+.Darkcontainer .Input input:focus {
+  outline: none;
+  background-color: rgb(60, 60, 60);
+}
+
+.DarkBody {
+  background: linear-gradient(110deg, rgb(0, 0, 117), rgb(85, 0, 84));
+  transition: 0.5s all;
 }

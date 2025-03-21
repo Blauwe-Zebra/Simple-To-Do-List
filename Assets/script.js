@@ -72,3 +72,11 @@ function LoadSave() {
 // function LoadSave() {
 //   tasks.innerHTML = localStorage.getItem("Data");
 // }
+
+// Darkmode
+function DarkMode() {
+  document.getElementById("DarkMode").classList.toggle("fa-moon-o");
+  document.getElementById("DarkMode").classList.toggle("fa-sun-o");
+  document.getElementById("container").classList.toggle("Darkcontainer");
+  document.getElementById("body").classList.toggle("DarkBody");
+}

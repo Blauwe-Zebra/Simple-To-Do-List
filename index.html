@@ -15,9 +15,14 @@
     />
     <title>To-Do list</title>
   </head>
-  <body>
-    <div class="container">
-      <section class="print fa" onclick="print()">&#xf02f;</section>
+  <body id="body">
+    <div class="container" id="container">
+      <section class="print fa fa-print" onclick="print()"></section>
+      <section
+        class="DarkMode fa fa-sun-o"
+        onclick="DarkMode()"
+        id="DarkMode"
+      ></section>
       <h1 class="fa">&#xf02d; To-Do list</h1>
       <div class="Input">
         <input
