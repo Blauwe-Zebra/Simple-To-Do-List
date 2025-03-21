@@ -45,7 +45,8 @@ body {
   transition: 0.5s all;
 }
 
-.container .fa:hover {
+.container .DarkMode:hover,
+.container .print:hover {
   background-color: lightgrey;
   transition: 0.5s all;
   cursor: pointer;

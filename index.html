@@ -17,12 +17,17 @@
   </head>
   <body id="body">
     <div class="container" id="container">
-      <section class="print fa fa-print" onclick="print()"></section>
-      <section
-        class="DarkMode fa fa-sun-o"
-        onclick="DarkMode()"
-        id="DarkMode"
-      ></section>
+      <abbr title="Toggle darkmode and lightmode">
+        <section
+          class="DarkMode fa fa-sun-o"
+          onclick="DarkMode()"
+          id="DarkMode"
+        ></section>
+      </abbr>
+      <abbr title="Click here to print the list">
+        <section class="print fa fa-print" onclick="print()"></section>
+      </abbr>
+
       <h1 class="fa">&#xf02d; To-Do list</h1>
       <div class="Input">
         <input
