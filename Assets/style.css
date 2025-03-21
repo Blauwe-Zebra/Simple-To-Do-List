@@ -14,6 +14,7 @@ body {
 }
 
 .container {
+  position: relative;
   width: 100%;
   max-width: 500px;
   background-color: white;
@@ -21,6 +22,21 @@ body {
   border-radius: 15px;
   text-align: center;
   padding: 40px 30px 80px;
+}
+
+.container .print {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  padding: 10px;
+  border-radius: 50%;
+  transition: 0.5s all;
+}
+
+.container .print:hover {
+  background-color: lightgrey;
+  transition: 0.5s all;
+  cursor: pointer;
 }
 
 .container h1 {
