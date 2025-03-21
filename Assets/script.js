@@ -74,9 +74,21 @@ function LoadSave() {
 // }
 
 // Darkmode
+if (localStorage.getItem("Darkmode") == null) {
+  localStorage.setItem("Darkmode", false);
+} else if (localStorage.getItem("Darkmode") == "true") {
+  DarkMode();
+  localStorage.setItem("Darkmode", true);
+}
 function DarkMode() {
   document.getElementById("DarkMode").classList.toggle("fa-moon-o");
   document.getElementById("DarkMode").classList.toggle("fa-sun-o");
   document.getElementById("container").classList.toggle("Darkcontainer");
   document.getElementById("body").classList.toggle("DarkBody");
+
+  if (localStorage.getItem("Darkmode") == "false") {
+    localStorage.setItem("Darkmode", true);
+  } else if (localStorage.getItem("Darkmode") == "true") {
+    localStorage.setItem("Darkmode", false);
+  }
 }
