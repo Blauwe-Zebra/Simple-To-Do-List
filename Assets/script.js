@@ -92,3 +92,20 @@ function DarkMode() {
     localStorage.setItem("Darkmode", false);
   }
 }
+
+// import to-do's from json
+fetch("Assets/data.json")
+  .then((Response) => Response.json())
+  .then((data) => {
+    data.ToDo.forEach((element) => {
+      console.log(element);
+      let li = document.createElement("li");
+      li.innerHTML = element;
+      tasks.appendChild(li);
+
+      let span = document.createElement("span");
+      span.innerHTML = "&#10005;";
+      li.appendChild(span);
+      Save();
+    });
+  });
