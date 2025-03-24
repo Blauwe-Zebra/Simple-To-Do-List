@@ -94,18 +94,59 @@ function DarkMode() {
 }
 
 // import to-do's from json
-fetch("Assets/data.json")
-  .then((Response) => Response.json())
-  .then((data) => {
-    data.ToDo.forEach((element) => {
-      console.log(element);
-      let li = document.createElement("li");
-      li.innerHTML = element;
-      tasks.appendChild(li);
+// fetch("Assets/data.json")
+//   .then((Response) => Response.json())
+//   .then((data) => {
+//     data.ToDo.forEach((element) => {
+//       console.log(element);
+//       let li = document.createElement("li");
+//       li.innerHTML = element;
+//       tasks.appendChild(li);
 
-      let span = document.createElement("span");
-      span.innerHTML = "&#10005;";
-      li.appendChild(span);
-      Save();
-    });
+//       let span = document.createElement("span");
+//       span.innerHTML = "&#10005;";
+//       li.appendChild(span);
+//       Save();
+//     });
+//   });
+
+// Ai random item
+async function Random() {
+  const apiKey = ""; // API KEY
+  const apiUrl = "https://api.mistral.ai/v1/chat/completions";
+
+  const prompt =
+    "Give a random short one sentence task for a to-do list (only the task and short anser, without qoutation marks or an ordered list or something just plane text).";
+
+  const response = await fetch(apiUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      model: "mistral-tiny",
+      messages: [{ role: "user", content: prompt }],
+      max_tokens: 50,
+      temperature: 0.9,
+    }),
   });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    console.error("Error API-Request:", response.statusText, errorText);
+    return;
+  }
+
+  const data = await response.json();
+  const task = data.choices[0].message.content.trim();
+
+  let li = document.createElement("li");
+  li.innerHTML = task;
+  document.getElementById("Tasks").appendChild(li);
+
+  let span = document.createElement("span");
+  span.innerHTML = "&#10005;";
+  li.appendChild(span);
+  Save();
+}

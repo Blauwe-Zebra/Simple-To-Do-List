@@ -46,7 +46,8 @@ body {
 }
 
 .container .DarkMode:hover,
-.container .print:hover {
+.container .print:hover,
+.Random:hover {
   background-color: lightgrey;
   transition: 0.5s all;
   cursor: pointer;
@@ -135,6 +136,13 @@ span:hover {
   cursor: pointer;
   transition: all 0.3s;
   background-color: rgb(189, 189, 189);
+}
+
+.Random {
+  justify-self: center;
+  align-self: center;
+  padding: 10px;
+  border-radius: 50%;
 }
 
 /* Darkmode */
