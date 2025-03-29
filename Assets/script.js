@@ -13,16 +13,21 @@ function AddItem() {
   if (input.value === "") {
     console.log("No content in input");
   } else {
-    let li = document.createElement("li");
-    li.innerHTML = input.value;
-    tasks.appendChild(li);
-
-    let span = document.createElement("span");
-    span.innerHTML = "&#10005;";
-    li.appendChild(span);
-    Save();
+    addItems(input.value)
   }
   input.value = "";
+}
+
+// Create Item
+function addItems(item) {
+  let li = document.createElement("li");
+  li.innerHTML = item;
+  tasks.appendChild(li);
+
+  let span = document.createElement("span");
+  span.innerHTML = "&#10005;";
+  li.appendChild(span);
+  Save();
 }
 
 // if item is clicked check item or remove it
@@ -141,12 +146,5 @@ async function Random() {
   const data = await response.json();
   const task = data.choices[0].message.content.trim();
 
-  let li = document.createElement("li");
-  li.innerHTML = task;
-  document.getElementById("Tasks").appendChild(li);
-
-  let span = document.createElement("span");
-  span.innerHTML = "&#10005;";
-  li.appendChild(span);
-  Save();
+  addItems(task)
 }
