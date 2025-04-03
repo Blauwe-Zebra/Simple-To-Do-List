@@ -117,11 +117,11 @@ function DarkMode() {
 
 // Ai random item
 async function Random() {
-  const apiKey = ""; // API KEY
+  const apiKey = "HSLCZmOYODm8hW0fAfz2TdIYSpdMZYdw"; // API KEY
   const apiUrl = "https://api.mistral.ai/v1/chat/completions";
 
   const prompt =
-    "Give a random short one sentence task for a to-do list (only the task and short anser, without qoutation marks or an ordered list or something just plane text).";
+    "Give a random short one sentence task for a to-do list (only the task and short anser, without quotation marks or an ordered list or something just plane text, make it realistic).";
 
   const response = await fetch(apiUrl, {
     method: "POST",
