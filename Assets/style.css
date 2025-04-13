@@ -90,6 +90,12 @@ body {
   color: white;
 }
 
+.Input button:hover {
+  cursor: pointer;
+  transition: all 0.3s;
+  background-color: rgb(255, 72, 72);
+}
+
 ul {
   text-align: left;
   position: relative;
@@ -153,7 +159,7 @@ span:hover {
 }
 
 .Darkcontainer .Input input {
-  background-color: grey;
+  background-color: rgb(85, 85, 85);
   color: white;
 }
 
